@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Enviar Correos</title>
+    <link rel="stylesheet" th:href="@{../static/estilos.css}">
+</head>
+<body>
+    <div class="fondo">
+        <h2>Formulario para el envio de correo</h2>
+
+        <!--Poner action="#" por sintaxis, la ruta verdader es th:action-->
+        <form action="#" th:action="@{/enviar}" th:object="${email}" method="post">
+            <label>Destinatario:</label><br>
+            <input type="email" th:field="*{to}" required /><br><br>
+
+            <label>Asunto:</label><br>
+            <input type="text" th:field="*{subject}" required /><br><br>
+
+            <label>Mensaje:</label><br>
+            <textarea type="text" th:field="*{body}" required></textarea><br><br>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <!--Condicional que solo aparecera si ahí un mensaje de confirmacion en el modelo-->
+    <p th:if="${mensaje}" th:text="${mensaje}" class="mensaje-confirmacion"></p>
+</body>
+</html>

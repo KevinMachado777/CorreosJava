@@ -1,0 +1,148 @@
+/* Fuente futurista */
+/*@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');*/
+
+/* Estilo general */
+html, body {
+    height: 100%; /* Asegura que el body ocupe toda la altura */
+    margin: 0;
+    overflow-y: auto; /* Permite el desplazamiento vertical si el contenido excede */
+}
+
+/* Fondo animado */
+body {
+    background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    flex-direction: column; /* Apilamos los elementos en una columna */
+    justify-content: flex-start; /* Alineamos los elementos al inicio (no centramos todo) */
+    align-items: center; /* Alineamos los elementos horizontalmente en el centro */
+    min-height: 100vh; /* Asegura que el body tenga como mínimo la altura de la ventana */
+    margin: 0;
+    padding: 20px;
+    animation: fondoAnimado 5s linear infinite;
+}
+
+/* Título */
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #00e6e6;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.6);
+    margin-top: 30px; /* Asegura que no se superponga con el contenido */
+    width: 100%;
+}
+
+/* Formulario */
+form {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    position: relative;
+    margin: 0 auto;
+}
+
+/* Inputs y textarea */
+input, textarea {
+    background: transparent;
+    border: 2px solid #00e6e6;
+    padding: 12px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 10px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #ff8c00;
+}
+
+/* Botón de envío */
+button {
+    background: #00e6e6;
+    color: black;
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.6);
+}
+
+/* Efectos de mensaje de confirmación */
+.mensaje-confirmacion {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 255, 0, 0.85);
+    padding: 25px 40px;
+    border-radius: 15px;
+    color: white;
+    font-size: 1.8rem;
+    text-align: center;
+    z-index: 999;
+    pointer-events: none;
+
+    /* Animaciones */
+    animation:
+            aparecerZoom 0.5s ease-out,
+            fuegotes 0.5s ease-in-out infinite alternate,
+            desaparecer 1s ease-in-out 4s forwards;
+}
+
+/* Aparece con zoom */
+@keyframes aparecerZoom {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+/* Fuegos artificiales intensos */
+@keyframes fuegotes {
+    0% {
+        box-shadow:
+                0 0 15px #ff00ff,
+                0 0 25px #00ffff,
+                0 0 35px #ffcc00,
+                0 0 45px #ff0066;
+    }
+    100% {
+        box-shadow:
+                0 0 25px #00ff00,
+                0 0 35px #ff3399,
+                0 0 45px #33ccff,
+                0 0 55px #ff6600;
+    }
+}
+
+/* Desaparece suavemente después de 4s */
+@keyframes desaparecer {
+    to {
+        opacity: 0;
+    }
+}
